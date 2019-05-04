@@ -15,9 +15,11 @@ variables:
 
 steps:
 - task: DockerCompose@0
+  displayName: Run a Docker Compose command
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: '98ac73db-de12-4e73-8e0d-e97ec67139cb'
+    dockerComposeFile: '**/docker-compose.yml'
     qualifyImageNames: false
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'rm'
