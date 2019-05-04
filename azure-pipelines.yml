@@ -19,4 +19,4 @@ steps:
     containerRegistry: '98ac73db-de12-4e73-8e0d-e97ec67139cb'
     repository: 'aspwebcorewithdocker'
     command: 'buildAndPush'
-    buildContext: '**/aspwebcorewithdocker'
+    buildContext: 'aspwebcorewithdocker/aspwebcorewithdocker'
