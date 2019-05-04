@@ -14,9 +14,16 @@ variables:
   imageName: 'aspwebcorewithdocker'
 
 steps:
-- task: Docker@2
+- task: DockerCompose@0
   inputs:
-    containerRegistry: '98ac73db-de12-4e73-8e0d-e97ec67139cb'
-    repository: 'aspwebcorewithdocker'
-    command: 'buildAndPush'
-    buildContext: 'aspwebcorewithdocker/aspwebcorewithdocker'
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: '98ac73db-de12-4e73-8e0d-e97ec67139cb'
+    action: 'Build services'
+    additionalImageTags: '$(Build.BuildNumber)'
+    includeLatestTag: true
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: '98ac73db-de12-4e73-8e0d-e97ec67139cb'
+    action: 'Push services'
+    includeLatestTag: true
