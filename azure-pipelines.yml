@@ -16,8 +16,8 @@ variables:
   imageName: 'aspnetcorewithdocker'
 
 steps:
-- script: |
-    docker-compose -f docker-compose.yml --project-directory . -p . up -d
-    docker wait docs_sut_1
-    docker-compose -f docker-compose.yml --project-directory . down
+- script:
+    docker login -u doanmanhsonha -p nguyenthithanhha
+    docker-compose -f docker-compose.yml --project-directory . -p AspWebCoreWithDocker 
+    docker push doanmanhsonha/aspnetcorewithdocker
 
