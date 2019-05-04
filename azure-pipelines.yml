@@ -11,7 +11,13 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  dockerId: 'doanmanhsonha'
+  pswd: 'nguyenthithanhha'
+  imageName: 'aspnetcorewithdocker'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- script: |
+    docker-compose -f docker-compose.yml --project-directory . -p . up -d
+    docker wait docs_sut_1
+    docker-compose -f docker-compose.yml --project-directory . down
+
