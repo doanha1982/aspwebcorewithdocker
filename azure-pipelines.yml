@@ -17,7 +17,6 @@ variables:
 
 steps:
 - script: |
-    docker login -u doanha1982 -p nguyenthithanhha
     docker-compose -f docker-compose.yml --project-directory . -p AspWebCoreWithDocker 
     docker push doanha1982/aspnetcorewithdocker
 
